@@ -7,17 +7,19 @@ import { ResetGame } from './components/ResetGame';
 
 export default function App() {
   useEffect(() => {
-    if (score > 10) {
+    if (score >= 10) {
       Alert.alert('Congratulations you won!');
-      setScore(0);
-    } else {
+    } else if (score >= 8) {
       Alert.alert('Keep going!');
     }
-  }, [score]);
+  }, [{ score }]);
 
   const [score, setScore] = useState(0);
   return (
     <View style={styles.container}>
+      <Text style={{ fontSize: 30, fontWeight: 'bold', marginBottom: 30 }}>
+        Find the nuts!
+      </Text>
       <Score score={score} />
       <Woodland score={score} setScore={setScore} />
       <ResetGame setScore={setScore} />
@@ -28,7 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
   },
