@@ -9,17 +9,22 @@ export default function App() {
   useEffect(() => {
     if (score >= 10) {
       Alert.alert('Congratulations you won!');
-    } else if (score >= 8) {
+    } else if (score == 9) {
       Alert.alert('Keep going!');
     }
+    1;
   }, [{ score }]);
 
   const [score, setScore] = useState(0);
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30, fontWeight: 'bold', marginBottom: 30 }}>
-        Find the nuts!
+      <Text style={{ fontSize: 30, fontWeight: 'bold', marginBottom: 10 }}>
+        🌰 Find the nuts 🌰
       </Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>
+        Tap on the grid to find a nut, the aim is to get to 10!
+      </Text>
+
       <Score score={score} />
       <Woodland score={score} setScore={setScore} />
       <ResetGame setScore={setScore} />
